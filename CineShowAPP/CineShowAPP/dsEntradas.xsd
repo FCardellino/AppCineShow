@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEntradas" targetNamespace="http://tempuri.org/dsEntradas.xsd" xmlns:mstns="http://tempuri.org/dsEntradas.xsd" xmlns="http://tempuri.org/dsEntradas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CineSHOWConnectionStringEntradas" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CineSHOWConnectionStringEntradas (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CineShowAPP.Properties.Settings.GlobalReference.Default.CineSHOWConnectionStringEntradas" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableEntradasOkTableAdapter" GeneratorDataComponentClassName="DataTableEntradasOkTableAdapter" Name="DataTableEntradasOk" UserDataComponentName="DataTableEntradasOkTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CineSHOWConnectionStringEntradas (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        p.id_pelicula, p.titulo, f.dia_funcion, c.nombre + ' ' + c.apellido AS Cliente, COUNT(*) AS 'Cantidad_Entradas', dc.monto, ts.tipo_sala, SUM(dc.monto) AS 'Monto_Total'
+FROM            Peliculas AS p INNER JOIN
+                         Funciones AS f ON p.id_pelicula = f.id_pelicula INNER JOIN
+                         Salas_Funciones AS sf ON f.id_funcion = sf.id_funcion INNER JOIN
+                         Clientes AS c INNER JOIN
+                         Comprobantes_Compras AS cc ON c.id_cliente = cc.id_cliente INNER JOIN
+                         Detalles_Comprobantes AS dc ON cc.id_comprobante = dc.id_comprobante ON sf.id_sala_funcion = dc.id_sala_funcion INNER JOIN
+                         Salas AS s ON sf.id_sala = s.id_sala INNER JOIN
+                         Tipos_Salas AS ts ON s.id_tipo_sala = ts.id_tipo_sala
+GROUP BY p.id_pelicula, p.titulo, f.id_funcion, f.dia_funcion, c.id_cliente, c.nombre, c.apellido, ts.tipo_sala, dc.monto</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_pelicula" DataSetColumn="id_pelicula" />
+              <Mapping SourceColumn="titulo" DataSetColumn="titulo" />
+              <Mapping SourceColumn="dia_funcion" DataSetColumn="dia_funcion" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Cantidad_Entradas" DataSetColumn="Cantidad_Entradas" />
+              <Mapping SourceColumn="monto" DataSetColumn="monto" />
+              <Mapping SourceColumn="tipo_sala" DataSetColumn="tipo_sala" />
+              <Mapping SourceColumn="Monto_Total" DataSetColumn="Monto_Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEntradas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsEntradas" msprop:Generator_UserDSName="dsEntradas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableEntradasOk" msprop:Generator_TableClassName="DataTableEntradasOkDataTable" msprop:Generator_TableVarName="tableDataTableEntradasOk" msprop:Generator_TablePropName="DataTableEntradasOk" msprop:Generator_RowDeletingName="DataTableEntradasOkRowDeleting" msprop:Generator_RowChangingName="DataTableEntradasOkRowChanging" msprop:Generator_RowEvHandlerName="DataTableEntradasOkRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableEntradasOkRowDeleted" msprop:Generator_UserTableName="DataTableEntradasOk" msprop:Generator_RowChangedName="DataTableEntradasOkRowChanged" msprop:Generator_RowEvArgName="DataTableEntradasOkRowChangeEvent" msprop:Generator_RowClassName="DataTableEntradasOkRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_pelicula" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_pelicula" msprop:Generator_ColumnPropNameInRow="id_pelicula" msprop:Generator_ColumnPropNameInTable="id_peliculaColumn" msprop:Generator_UserColumnName="id_pelicula" type="xs:int" />
+              <xs:element name="titulo" msprop:Generator_ColumnVarNameInTable="columntitulo" msprop:Generator_ColumnPropNameInRow="titulo" msprop:Generator_ColumnPropNameInTable="tituloColumn" msprop:Generator_UserColumnName="titulo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dia_funcion" msprop:Generator_ColumnVarNameInTable="columndia_funcion" msprop:Generator_ColumnPropNameInRow="dia_funcion" msprop:Generator_ColumnPropNameInTable="dia_funcionColumn" msprop:Generator_UserColumnName="dia_funcion" type="xs:dateTime" />
+              <xs:element name="Cliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad_Entradas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad_Entradas" msprop:Generator_ColumnPropNameInRow="Cantidad_Entradas" msprop:Generator_ColumnPropNameInTable="Cantidad_EntradasColumn" msprop:Generator_UserColumnName="Cantidad_Entradas" type="xs:int" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:decimal" />
+              <xs:element name="tipo_sala" msprop:Generator_ColumnVarNameInTable="columntipo_sala" msprop:Generator_ColumnPropNameInRow="tipo_sala" msprop:Generator_ColumnPropNameInTable="tipo_salaColumn" msprop:Generator_UserColumnName="tipo_sala">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Monto_Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonto_Total" msprop:Generator_ColumnPropNameInRow="Monto_Total" msprop:Generator_ColumnPropNameInTable="Monto_TotalColumn" msprop:Generator_UserColumnName="Monto_Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTableEntradasOk" />
+      <xs:field xpath="mstns:id_pelicula" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

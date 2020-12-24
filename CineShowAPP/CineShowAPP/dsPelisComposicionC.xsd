@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPelisComposicionC" targetNamespace="http://tempuri.org/dsPelisComposicionC.xsd" xmlns:mstns="http://tempuri.org/dsPelisComposicionC.xsd" xmlns="http://tempuri.org/dsPelisComposicionC.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CineSHOWConnectionStringBDTc" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CineSHOWConnectionStringBDTc (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CineShowAPP.Properties.Settings.GlobalReference.Default.CineSHOWConnectionStringBDTc" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTablePelisCompCTableAdapter" GeneratorDataComponentClassName="DataTablePelisCompCTableAdapter" Name="DataTablePeliculasCompC" UserDataComponentName="DataTablePelisCompCTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CineSHOWConnectionStringBDTc (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Peliculas.id_pelicula, Peliculas.titulo, Peliculas.descripcion, Generos.genero, Peliculas.duracion, Peliculas.fecha_estreno, Idiomas.idioma, Clasificaciones.categoria, Calificacion.puntaje, Nacionalidades.nacionalidad
+FROM            Calificacion INNER JOIN
+                         Peliculas ON Calificacion.id_calificacion = Peliculas.id_calificacion INNER JOIN
+                         Clasificaciones ON Peliculas.id_clasificacion = Clasificaciones.id_clasificacion INNER JOIN
+                         Generos ON Peliculas.id_genero = Generos.id_genero INNER JOIN
+                         Idiomas ON Peliculas.id_idioma = Idiomas.id_idioma INNER JOIN
+                         Nacionalidades ON Peliculas.id_nac = Nacionalidades.id_nac</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_pelicula" DataSetColumn="id_pelicula" />
+              <Mapping SourceColumn="titulo" DataSetColumn="titulo" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="genero" DataSetColumn="genero" />
+              <Mapping SourceColumn="duracion" DataSetColumn="duracion" />
+              <Mapping SourceColumn="fecha_estreno" DataSetColumn="fecha_estreno" />
+              <Mapping SourceColumn="idioma" DataSetColumn="idioma" />
+              <Mapping SourceColumn="categoria" DataSetColumn="categoria" />
+              <Mapping SourceColumn="puntaje" DataSetColumn="puntaje" />
+              <Mapping SourceColumn="nacionalidad" DataSetColumn="nacionalidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPelisComposicionC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPelisComposicionC" msprop:Generator_UserDSName="dsPelisComposicionC">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTablePeliculasCompC" msprop:Generator_TableClassName="DataTablePeliculasCompCDataTable" msprop:Generator_TableVarName="tableDataTablePeliculasCompC" msprop:Generator_TablePropName="DataTablePeliculasCompC" msprop:Generator_RowDeletingName="DataTablePeliculasCompCRowDeleting" msprop:Generator_RowChangingName="DataTablePeliculasCompCRowChanging" msprop:Generator_RowEvHandlerName="DataTablePeliculasCompCRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTablePeliculasCompCRowDeleted" msprop:Generator_UserTableName="DataTablePeliculasCompC" msprop:Generator_RowChangedName="DataTablePeliculasCompCRowChanged" msprop:Generator_RowEvArgName="DataTablePeliculasCompCRowChangeEvent" msprop:Generator_RowClassName="DataTablePeliculasCompCRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_pelicula" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_pelicula" msprop:Generator_ColumnPropNameInRow="id_pelicula" msprop:Generator_ColumnPropNameInTable="id_peliculaColumn" msprop:Generator_UserColumnName="id_pelicula" type="xs:int" />
+              <xs:element name="titulo" msprop:Generator_ColumnVarNameInTable="columntitulo" msprop:Generator_ColumnPropNameInRow="titulo" msprop:Generator_ColumnPropNameInTable="tituloColumn" msprop:Generator_UserColumnName="titulo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="280" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="genero" msprop:Generator_ColumnVarNameInTable="columngenero" msprop:Generator_ColumnPropNameInRow="genero" msprop:Generator_ColumnPropNameInTable="generoColumn" msprop:Generator_UserColumnName="genero">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="duracion" msprop:Generator_ColumnVarNameInTable="columnduracion" msprop:Generator_ColumnPropNameInRow="duracion" msprop:Generator_ColumnPropNameInTable="duracionColumn" msprop:Generator_UserColumnName="duracion" type="xs:int" />
+              <xs:element name="fecha_estreno" msprop:Generator_ColumnVarNameInTable="columnfecha_estreno" msprop:Generator_ColumnPropNameInRow="fecha_estreno" msprop:Generator_ColumnPropNameInTable="fecha_estrenoColumn" msprop:Generator_UserColumnName="fecha_estreno" type="xs:dateTime" />
+              <xs:element name="idioma" msprop:Generator_ColumnVarNameInTable="columnidioma" msprop:Generator_ColumnPropNameInRow="idioma" msprop:Generator_ColumnPropNameInTable="idiomaColumn" msprop:Generator_UserColumnName="idioma">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="categoria" msprop:Generator_ColumnVarNameInTable="columncategoria" msprop:Generator_ColumnPropNameInRow="categoria" msprop:Generator_ColumnPropNameInTable="categoriaColumn" msprop:Generator_UserColumnName="categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="puntaje" msprop:Generator_ColumnVarNameInTable="columnpuntaje" msprop:Generator_ColumnPropNameInRow="puntaje" msprop:Generator_ColumnPropNameInTable="puntajeColumn" msprop:Generator_UserColumnName="puntaje">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nacionalidad" msprop:Generator_ColumnVarNameInTable="columnnacionalidad" msprop:Generator_ColumnPropNameInRow="nacionalidad" msprop:Generator_ColumnPropNameInTable="nacionalidadColumn" msprop:Generator_UserColumnName="nacionalidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTablePeliculasCompC" />
+      <xs:field xpath="mstns:id_pelicula" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
